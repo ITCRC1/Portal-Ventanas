@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 96" role="img" aria-label="Hoja">
   <style>
-    .ink { stroke: #3E2B23; }
-    .fill { fill: #3E2B23; }
+    .ink { stroke: #1E293B; }
+    .fill { fill: #1E293B; }
     @media (prefers-color-scheme: dark) {
-      .ink { stroke: #F0E6D8; }
-      .fill { fill: #F0E6D8; }
+      .ink { stroke: #F1F5F9; }
+      .fill { fill: #F1F5F9; }
     }
   </style>
   <g class="ink" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">

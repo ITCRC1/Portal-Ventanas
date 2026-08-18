@@ -31,10 +31,10 @@ export async function DocumentCard({ doc }: Props) {
       style={{
         display: "flex",
         flexDirection: "column",
-        backgroundColor: "var(--crc-white)",
+        backgroundColor: "var(--brand-white)",
         borderRadius: 10,
         padding: "1.25rem",
-        border: "1px solid var(--crc-border)",
+        border: "1px solid var(--brand-border)",
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
@@ -43,8 +43,8 @@ export async function DocumentCard({ doc }: Props) {
           style={{
             fontSize: "0.7rem",
             fontWeight: 700,
-            color: "var(--crc-brown)",
-            border: "1px solid var(--crc-brown)",
+            color: "var(--brand-primary)",
+            border: "1px solid var(--brand-primary)",
             borderRadius: 4,
             padding: "0.05rem 0.35rem",
           }}
@@ -54,7 +54,7 @@ export async function DocumentCard({ doc }: Props) {
         <span style={{ fontSize: "0.75rem", color: "#999" }}>{formatSize(doc.size)}</span>
       </div>
 
-      <div style={{ fontWeight: 700, color: "var(--crc-brown-dark)", marginBottom: "0.35rem" }}>
+      <div style={{ fontWeight: 700, color: "var(--brand-dark)", marginBottom: "0.35rem" }}>
         {doc.name}
       </div>
       {doc.description && (
@@ -74,8 +74,8 @@ export async function DocumentCard({ doc }: Props) {
           textAlign: "center",
           padding: "0.55rem 0.75rem",
           borderRadius: 6,
-          backgroundColor: "var(--crc-green)",
-          color: "var(--crc-white)",
+          backgroundColor: "var(--brand-accent)",
+          color: "var(--brand-white)",
           fontWeight: 600,
           fontSize: "0.85rem",
           textDecoration: "none",

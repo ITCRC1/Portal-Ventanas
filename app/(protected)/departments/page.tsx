@@ -39,7 +39,7 @@ export default async function DepartmentsPage() {
 
   return (
     <div>
-      <h1 style={{ color: "var(--crc-brown-dark)", fontSize: "1.5rem", marginBottom: "0.25rem" }}>
+      <h1 style={{ color: "var(--brand-dark)", fontSize: "1.5rem", marginBottom: "0.25rem" }}>
         {dict.nav.departments}
       </h1>
       <p style={{ color: "#777", marginBottom: "2rem" }}>
@@ -49,18 +49,18 @@ export default async function DepartmentsPage() {
       {departments.length === 0 ? (
         <div
           style={{
-            backgroundColor: "var(--crc-white)",
+            backgroundColor: "var(--brand-white)",
             borderRadius: 10,
             padding: "2rem",
             textAlign: "center",
             color: "#777",
-            border: "1px solid var(--crc-border)",
+            border: "1px solid var(--brand-border)",
           }}
         >
           {dict.departments.empty}
         </div>
       ) : (
-        <div className="crc-dept-grid">
+        <div className="brand-dept-grid">
           {departments.map((d) => (
             <Link
               key={d.id}
@@ -68,15 +68,15 @@ export default async function DepartmentsPage() {
               style={{
                 display: "block",
                 textDecoration: "none",
-                backgroundColor: "var(--crc-white)",
+                backgroundColor: "var(--brand-white)",
                 borderRadius: 10,
                 padding: "1.25rem",
-                border: "1px solid var(--crc-border)",
+                border: "1px solid var(--brand-border)",
               }}
             >
               <div style={{ fontSize: "1.75rem", marginBottom: "0.5rem" }}>{d.icon}</div>
               <div
-                style={{ fontWeight: 700, color: "var(--crc-brown-dark)", marginBottom: "0.35rem" }}
+                style={{ fontWeight: 700, color: "var(--brand-dark)", marginBottom: "0.35rem" }}
               >
                 {d.name}
               </div>

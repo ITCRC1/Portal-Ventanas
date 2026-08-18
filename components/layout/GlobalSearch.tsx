@@ -115,10 +115,10 @@ export function GlobalSearch() {
   let runningIndex = -1
 
   return (
-    // El margen lateral se define en .crc-search para poder reducirlo en móvil.
+    // El margen lateral se define en .brand-search para poder reducirlo en móvil.
     <div
       ref={boxRef}
-      className="crc-search"
+      className="brand-search"
       style={{ position: "relative", flex: "1 1 320px", maxWidth: 460 }}
     >
       <div style={{ position: "relative" }}>
@@ -155,9 +155,9 @@ export function GlobalSearch() {
             padding: "0.5rem 0.75rem 0.5rem 2.2rem",
             borderRadius: 999,
             border: "1px solid #e5ddd3",
-            backgroundColor: "var(--crc-sand)",
+            backgroundColor: "var(--brand-surface)",
             fontSize: "0.85rem",
-            color: "var(--crc-brown-dark)",
+            color: "var(--brand-dark)",
             outline: "none",
           }}
         />
@@ -173,7 +173,7 @@ export function GlobalSearch() {
             zIndex: 50,
             maxHeight: 440,
             overflowY: "auto",
-            backgroundColor: "var(--crc-white)",
+            backgroundColor: "var(--brand-white)",
             borderRadius: 10,
             border: "1px solid #e5ddd3",
             boxShadow: "0 10px 30px rgba(0,0,0,0.18)",
@@ -219,7 +219,7 @@ export function GlobalSearch() {
                         alignItems: "center",
                         padding: "0.55rem 0.9rem",
                         border: "none",
-                        background: isActive ? "#f6f2ea" : "var(--crc-white)",
+                        background: isActive ? "#f6f2ea" : "var(--brand-white)",
                         cursor: "pointer",
                       }}
                     >
@@ -230,12 +230,12 @@ export function GlobalSearch() {
                           width: 26,
                           height: 26,
                           borderRadius: 7,
-                          background: "var(--crc-sand)",
+                          background: "var(--brand-surface)",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
                           fontSize: "0.85rem",
-                          color: "var(--crc-green)",
+                          color: "var(--brand-accent)",
                         }}
                       >
                         {TYPE_ICON[hit.type]}
@@ -246,7 +246,7 @@ export function GlobalSearch() {
                             display: "block",
                             fontSize: "0.85rem",
                             fontWeight: 600,
-                            color: "var(--crc-brown-dark)",
+                            color: "var(--brand-dark)",
                             overflow: "hidden",
                             textOverflow: "ellipsis",
                             whiteSpace: "nowrap",

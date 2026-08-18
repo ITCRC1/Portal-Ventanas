@@ -45,8 +45,8 @@ export function LanguageToggle() {
             style={{
               padding: "0.3rem 0.55rem",
               border: "none",
-              backgroundColor: activo ? "var(--crc-brown-dark)" : "transparent",
-              color: activo ? "var(--crc-white)" : "var(--crc-brown-dark)",
+              backgroundColor: activo ? "var(--brand-dark)" : "transparent",
+              color: activo ? "var(--brand-white)" : "var(--brand-dark)",
               cursor: activo ? "default" : "pointer",
               fontSize: "0.72rem",
               fontWeight: 600,

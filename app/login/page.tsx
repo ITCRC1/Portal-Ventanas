@@ -3,7 +3,6 @@
 import { useEffect, useState, type FormEvent } from "react"
 import { useRouter } from "next/navigation"
 import { signIn } from "next-auth/react"
-import Image from "next/image"
 import { safeNext } from "@/lib/safe-redirect"
 import { useI18n } from "@/lib/i18n/client"
 
@@ -57,36 +56,35 @@ export default function LoginPage() {
       className="flex min-h-screen items-center justify-center p-6"
       style={{
         background:
-          "radial-gradient(circle at 20% 20%, var(--crc-brown) 0%, var(--crc-brown-dark) 55%, #241811 100%)",
+          "radial-gradient(circle at 20% 20%, var(--brand-primary) 0%, var(--brand-dark) 55%, #020617 100%)",
       }}
     >
       <div className="flex w-full max-w-[380px] flex-col items-center gap-8">
-        <div className="w-[200px]">
-          <Image
-            src="/logo.png"
-            alt="The Costa Rica Collection"
-            width={800}
-            height={260}
-            style={{ width: "100%", height: "auto" }}
-            priority
-          />
+        <div className="w-[200px] text-center">
+          {/* Placeholder: reemplaza este texto por <Image src="/logo.png" .../> cuando haya un logo. */}
+          <span
+            className="text-2xl font-bold tracking-tight"
+            style={{ color: "var(--brand-white)" }}
+          >
+            Portal Ventanas
+          </span>
         </div>
 
         <form
           onSubmit={handleSubmit}
           className="w-full rounded-2xl p-8 shadow-2xl ring-1 ring-black/5"
-          style={{ backgroundColor: "var(--crc-sand)" }}
+          style={{ backgroundColor: "var(--brand-surface)" }}
         >
           <div className="mb-6 text-center">
             <h1
               className="text-xl font-semibold"
-              style={{ color: "var(--crc-brown-dark)" }}
+              style={{ color: "var(--brand-dark)" }}
             >
               {dict.login.title}
             </h1>
             <p
               className="mt-1 text-sm opacity-70"
-              style={{ color: "var(--crc-brown)" }}
+              style={{ color: "var(--brand-primary)" }}
             >
               {dict.login.subtitle}
             </p>
@@ -96,7 +94,7 @@ export default function LoginPage() {
             <label className="flex flex-col gap-1.5">
               <span
                 className="text-xs font-medium uppercase tracking-wide"
-                style={{ color: "var(--crc-brown)" }}
+                style={{ color: "var(--brand-primary)" }}
               >
                 {dict.login.email}
               </span>
@@ -108,9 +106,9 @@ export default function LoginPage() {
                 required
                 className="rounded-lg px-3 py-2.5 text-sm outline-none transition focus:ring-2"
                 style={{
-                  border: "1px solid var(--crc-brown)",
-                  backgroundColor: "var(--crc-white)",
-                  color: "var(--crc-brown-dark)",
+                  border: "1px solid var(--brand-primary)",
+                  backgroundColor: "var(--brand-white)",
+                  color: "var(--brand-dark)",
                 }}
               />
             </label>
@@ -118,7 +116,7 @@ export default function LoginPage() {
             <label className="flex flex-col gap-1.5">
               <span
                 className="text-xs font-medium uppercase tracking-wide"
-                style={{ color: "var(--crc-brown)" }}
+                style={{ color: "var(--brand-primary)" }}
               >
                 {dict.login.password}
               </span>
@@ -131,9 +129,9 @@ export default function LoginPage() {
                   required
                   className="w-full rounded-lg px-3 py-2.5 pr-10 text-sm outline-none transition focus:ring-2"
                   style={{
-                    border: "1px solid var(--crc-brown)",
-                    backgroundColor: "var(--crc-white)",
-                    color: "var(--crc-brown-dark)",
+                    border: "1px solid var(--brand-primary)",
+                    backgroundColor: "var(--brand-white)",
+                    color: "var(--brand-dark)",
                   }}
                 />
                 <button
@@ -141,7 +139,7 @@ export default function LoginPage() {
                   onClick={() => setShowPassword((v) => !v)}
                   aria-label={showPassword ? dict.login.hidePassword : dict.login.showPassword}
                   className="absolute inset-y-0 right-0 flex items-center px-3"
-                  style={{ color: "var(--crc-brown)" }}
+                  style={{ color: "var(--brand-primary)" }}
                 >
                   {showPassword ? (
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -168,19 +166,19 @@ export default function LoginPage() {
               type="submit"
               disabled={loading}
               className="mt-2 rounded-lg py-2.5 text-sm font-semibold text-white transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
-              style={{ backgroundColor: "var(--crc-green)" }}
+              style={{ backgroundColor: "var(--brand-accent)" }}
             >
               {loading ? dict.login.submitting : dict.login.submit}
             </button>
 
-            <p className="text-center text-xs opacity-70" style={{ color: "var(--crc-brown)" }}>
+            <p className="text-center text-xs opacity-70" style={{ color: "var(--brand-primary)" }}>
               {dict.login.help}
             </p>
           </div>
         </form>
 
-        <p className="text-xs" style={{ color: "var(--crc-sand)" }}>
-          © {new Date().getFullYear()} The Costa Rica Collection
+        <p className="text-xs" style={{ color: "var(--brand-surface)" }}>
+          © {new Date().getFullYear()} Portal Ventanas
         </p>
       </div>
     </div>

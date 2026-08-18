@@ -20,7 +20,7 @@ export const toast = {
 }
 
 const COLORS: Record<ToastType, { accent: string; icon: string }> = {
-  success: { accent: "var(--crc-green)", icon: "✓" },
+  success: { accent: "var(--brand-accent)", icon: "✓" },
   error: { accent: "#a33", icon: "✕" },
 }
 
@@ -68,10 +68,10 @@ export function Toaster() {
               maxWidth: 380,
               padding: "0.8rem 1rem",
               borderRadius: 10,
-              background: "var(--crc-white)",
+              background: "var(--brand-white)",
               borderLeft: `4px solid ${c.accent}`,
               boxShadow: "0 8px 24px rgba(0,0,0,0.15)",
-              animation: "crcToastIn 0.25s ease-out",
+              animation: "brandToastIn 0.25s ease-out",
             }}
           >
             <span
@@ -81,7 +81,7 @@ export function Toaster() {
                 height: 26,
                 borderRadius: 999,
                 background: c.accent,
-                color: "var(--crc-white)",
+                color: "var(--brand-white)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -91,7 +91,7 @@ export function Toaster() {
             >
               {c.icon}
             </span>
-            <span style={{ fontSize: "0.88rem", color: "var(--crc-brown-dark)", lineHeight: 1.35 }}>
+            <span style={{ fontSize: "0.88rem", color: "var(--brand-dark)", lineHeight: 1.35 }}>
               {t.message}
             </span>
           </div>

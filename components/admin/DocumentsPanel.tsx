@@ -151,8 +151,8 @@ export async function DocumentsPanel() {
         {documents.length === 0 ? (
           <div style={{ color: "#777", fontSize: "0.85rem" }}>{dict.adminDocuments.empty}</div>
         ) : (
-          // En móvil, .crc-table-wrap le da a la tabla scroll horizontal propio.
-          <div className="crc-table-wrap">
+          // En móvil, .brand-table-wrap le da a la tabla scroll horizontal propio.
+          <div className="brand-table-wrap">
           <table style={tableStyle}>
             <colgroup>
               <col style={{ width: "22%" }} />
@@ -184,7 +184,7 @@ export async function DocumentsPanel() {
                 return (
                   <tr key={d.id} style={tbodyRowStyle}>
                     <td style={tdStyle}>
-                      <div style={{ fontWeight: 600, color: "var(--crc-brown-dark)", fontSize: "0.82rem" }}>
+                      <div style={{ fontWeight: 600, color: "var(--brand-dark)", fontSize: "0.82rem" }}>
                         {d.name}
                       </div>
                       <div style={{ fontSize: "0.68rem", color: "#aaa" }}>

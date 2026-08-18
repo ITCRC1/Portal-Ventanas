@@ -10,12 +10,12 @@ import { getI18n } from "@/lib/i18n/server"
 import { fmt } from "@/lib/i18n/format"
 
 const cardStyle = {
-  backgroundColor: "var(--crc-white)",
+  backgroundColor: "var(--brand-white)",
   borderRadius: 12,
   padding: "1.25rem",
   // Solo borde tenue, sin sombra: interfaz más calmada (la elevación se reserva
-  // para el hover de las tarjetas clicables, vía .crc-lift).
-  border: "1px solid var(--crc-border)",
+  // para el hover de las tarjetas clicables, vía .brand-lift).
+  border: "1px solid var(--brand-border)",
 } as const
 
 const LEVEL_DOT: Record<string, string> = {
@@ -45,8 +45,8 @@ function KpiIcon({ name, danger }: { name: string; danger?: boolean }) {
         height: 38,
         borderRadius: 10,
         flexShrink: 0,
-        backgroundColor: danger ? "#f7ece9" : "var(--crc-sand)",
-        color: danger ? "var(--crc-danger)" : "var(--crc-green)",
+        backgroundColor: danger ? "#f7ece9" : "var(--brand-surface)",
+        color: danger ? "var(--brand-danger)" : "var(--brand-accent)",
       }}
     >
       <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
@@ -136,10 +136,10 @@ export default async function DashboardPage() {
 
   return (
     <div>
-      <h1 style={{ color: "var(--crc-brown-dark)", marginBottom: "0.25rem", fontSize: "1.6rem", fontWeight: 700, letterSpacing: "-0.01em" }}>
+      <h1 style={{ color: "var(--brand-dark)", marginBottom: "0.25rem", fontSize: "1.6rem", fontWeight: 700, letterSpacing: "-0.01em" }}>
         {fmt(dict.dashboard.welcome, { name: session.user.name ?? "" })}
       </h1>
-      <p style={{ color: "var(--crc-muted)", marginBottom: "2rem" }}>
+      <p style={{ color: "var(--brand-muted)", marginBottom: "2rem" }}>
         {isCorporate ? dict.dashboard.summaryCorporate : dict.dashboard.summaryPersonal}
       </p>
 
@@ -155,7 +155,7 @@ export default async function DashboardPage() {
           <Link
             key={k.title}
             href={k.href}
-            className="crc-lift"
+            className="brand-lift"
             style={{
               ...cardStyle,
               textDecoration: "none",
@@ -166,7 +166,7 @@ export default async function DashboardPage() {
           >
             <KpiIcon name={k.icon} danger={k.accent} />
             <div style={{ minWidth: 0 }}>
-              <div style={{ fontSize: "0.78rem", color: "var(--crc-muted)", marginBottom: "0.15rem" }}>
+              <div style={{ fontSize: "0.78rem", color: "var(--brand-muted)", marginBottom: "0.15rem" }}>
                 {k.title}
               </div>
               <div
@@ -174,7 +174,7 @@ export default async function DashboardPage() {
                   fontSize: "1.75rem",
                   fontWeight: 700,
                   lineHeight: 1.1,
-                  color: k.accent ? "var(--crc-danger)" : "var(--crc-brown-dark)",
+                  color: k.accent ? "var(--brand-danger)" : "var(--brand-dark)",
                 }}
               >
                 {k.value}
@@ -201,14 +201,14 @@ export default async function DashboardPage() {
               marginBottom: "1rem",
             }}
           >
-            <h2 style={{ margin: 0, fontSize: "1.05rem", color: "var(--crc-brown-dark)" }}>{dict.dashboard.myTasks}</h2>
-            <Link href="/tasks" style={{ fontSize: "0.8rem", color: "var(--crc-green)" }}>
+            <h2 style={{ margin: 0, fontSize: "1.05rem", color: "var(--brand-dark)" }}>{dict.dashboard.myTasks}</h2>
+            <Link href="/tasks" style={{ fontSize: "0.8rem", color: "var(--brand-accent)" }}>
               {dict.dashboard.viewAllTasks}
             </Link>
           </div>
 
           {myTasks.length === 0 ? (
-            <p style={{ color: "var(--crc-muted-soft)", fontSize: "0.85rem", margin: 0 }}>
+            <p style={{ color: "var(--brand-muted-soft)", fontSize: "0.85rem", margin: 0 }}>
               {dict.dashboard.noTasks}
             </p>
           ) : (
@@ -223,14 +223,14 @@ export default async function DashboardPage() {
                       justifyContent: "space-between",
                       gap: "0.75rem",
                       paddingBottom: "0.6rem",
-                      borderBottom: "1px solid var(--crc-border-soft)",
+                      borderBottom: "1px solid var(--brand-border-soft)",
                     }}
                   >
                     <div style={{ minWidth: 0 }}>
-                      <div style={{ fontSize: "0.88rem", color: "var(--crc-brown-dark)", fontWeight: 600 }}>
+                      <div style={{ fontSize: "0.88rem", color: "var(--brand-dark)", fontWeight: 600 }}>
                         {t.title}
                       </div>
-                      <div style={{ fontSize: "0.72rem", color: "var(--crc-muted)" }}>
+                      <div style={{ fontSize: "0.72rem", color: "var(--brand-muted)" }}>
                         {dict.taskStatus[t.status as keyof typeof dict.taskStatus]} · {fmt(dict.dashboard.priorityInline, { p: dict.taskPriority[t.priority as keyof typeof dict.taskPriority]?.toLowerCase() })}
                       </div>
                     </div>
@@ -239,7 +239,7 @@ export default async function DashboardPage() {
                         style={{
                           flexShrink: 0,
                           fontSize: "0.75rem",
-                          color: overdue ? "var(--crc-danger)" : "var(--crc-muted)",
+                          color: overdue ? "var(--brand-danger)" : "var(--brand-muted)",
                           fontWeight: overdue ? 600 : 400,
                           whiteSpace: "nowrap",
                         }}
@@ -263,14 +263,14 @@ export default async function DashboardPage() {
               marginBottom: "1rem",
             }}
           >
-            <h2 style={{ margin: 0, fontSize: "1.05rem", color: "var(--crc-brown-dark)" }}>{dict.dashboard.latestAnnouncements}</h2>
-            <Link href="/alerts" style={{ fontSize: "0.8rem", color: "var(--crc-green)" }}>
+            <h2 style={{ margin: 0, fontSize: "1.05rem", color: "var(--brand-dark)" }}>{dict.dashboard.latestAnnouncements}</h2>
+            <Link href="/alerts" style={{ fontSize: "0.8rem", color: "var(--brand-accent)" }}>
               {dict.dashboard.viewAllAnnouncements}
             </Link>
           </div>
 
           {announcements.length === 0 ? (
-            <p style={{ color: "var(--crc-muted-soft)", fontSize: "0.85rem", margin: 0 }}>{dict.dashboard.noAnnouncements}</p>
+            <p style={{ color: "var(--brand-muted-soft)", fontSize: "0.85rem", margin: 0 }}>{dict.dashboard.noAnnouncements}</p>
           ) : (
             <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "0.6rem" }}>
               {announcements.map((a) => (
@@ -281,7 +281,7 @@ export default async function DashboardPage() {
                     gap: "0.6rem",
                     alignItems: "start",
                     paddingBottom: "0.6rem",
-                    borderBottom: "1px solid var(--crc-border-soft)",
+                    borderBottom: "1px solid var(--brand-border-soft)",
                   }}
                 >
                   <span
@@ -296,10 +296,10 @@ export default async function DashboardPage() {
                     }}
                   />
                   <div style={{ minWidth: 0, flex: 1 }}>
-                    <div style={{ fontSize: "0.88rem", color: "var(--crc-brown-dark)", fontWeight: 600 }}>
+                    <div style={{ fontSize: "0.88rem", color: "var(--brand-dark)", fontWeight: 600 }}>
                       {a.title}
                     </div>
-                    <div style={{ fontSize: "0.72rem", color: "var(--crc-muted)" }}>
+                    <div style={{ fontSize: "0.72rem", color: "var(--brand-muted)" }}>
                       {a.department ? a.department.name : dict.common.general} · {fmtDate(a.publishedAt, locale)}
                     </div>
                   </div>

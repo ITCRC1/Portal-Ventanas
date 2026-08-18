@@ -27,7 +27,7 @@ export default async function DocumentsPage() {
 
   return (
     <div>
-      <h1 style={{ color: "var(--crc-brown-dark)", fontSize: "1.5rem", marginBottom: "0.25rem" }}>
+      <h1 style={{ color: "var(--brand-dark)", fontSize: "1.5rem", marginBottom: "0.25rem" }}>
         {dict.documents.title}
       </h1>
       <p style={{ color: "#777", marginBottom: "2rem" }}>
@@ -37,12 +37,12 @@ export default async function DocumentsPage() {
       {documents.length === 0 ? (
         <div
           style={{
-            backgroundColor: "var(--crc-white)",
+            backgroundColor: "var(--brand-white)",
             borderRadius: 10,
             padding: "2rem",
             textAlign: "center",
             color: "#777",
-            border: "1px solid var(--crc-border)",
+            border: "1px solid var(--brand-border)",
           }}
         >
           {dict.documents.empty}

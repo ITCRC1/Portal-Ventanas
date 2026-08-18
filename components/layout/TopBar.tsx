@@ -31,22 +31,22 @@ export function TopBar({ user, notifications = [], unreadCount = 0, onMenuClick 
   const today = rawToday.charAt(0).toUpperCase() + rawToday.slice(1)
 
   return (
-    // El padding se define en .crc-topbar para poder reducirlo en móvil vía media query.
+    // El padding se define en .brand-topbar para poder reducirlo en móvil vía media query.
     <header
-      className="crc-topbar"
+      className="brand-topbar"
       style={{
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        backgroundColor: "var(--crc-white)",
+        backgroundColor: "var(--brand-white)",
         borderBottom: "1px solid #e5ddd3",
       }}
     >
-      {/* Botón hamburguesa: solo visible en móvil (.crc-menu-btn); abre el menú lateral. */}
+      {/* Botón hamburguesa: solo visible en móvil (.brand-menu-btn); abre el menú lateral. */}
       <button
         type="button"
         onClick={onMenuClick}
-        className="crc-menu-btn"
+        className="brand-menu-btn"
         aria-label={dict.topbar.openMenu}
         style={{
           alignItems: "center",
@@ -55,8 +55,8 @@ export function TopBar({ user, notifications = [], unreadCount = 0, onMenuClick 
           height: 40,
           borderRadius: 8,
           border: "1px solid #e5ddd3",
-          backgroundColor: "var(--crc-white)",
-          color: "var(--crc-brown-dark)",
+          backgroundColor: "var(--brand-white)",
+          color: "var(--brand-dark)",
           flexShrink: 0,
         }}
       >
@@ -67,8 +67,8 @@ export function TopBar({ user, notifications = [], unreadCount = 0, onMenuClick 
         </svg>
       </button>
 
-      {/* La fecha se oculta en móvil (.crc-topbar-date) para dejar espacio al buscador. */}
-      <div className="crc-topbar-date" style={{ fontSize: "0.85rem", color: "var(--crc-muted)", flexShrink: 0 }}>
+      {/* La fecha se oculta en móvil (.brand-topbar-date) para dejar espacio al buscador. */}
+      <div className="brand-topbar-date" style={{ fontSize: "0.85rem", color: "var(--brand-muted)", flexShrink: 0 }}>
         {today}
       </div>
       <GlobalSearch />
@@ -76,8 +76,8 @@ export function TopBar({ user, notifications = [], unreadCount = 0, onMenuClick 
         <LanguageToggle />
         <NotificationBell notifications={notifications} unreadCount={unreadCount} />
         {/* Nombre/rol: se ocultan en móvil (ya aparecen en el pie del sidebar). */}
-        <div className="crc-topbar-user" style={{ textAlign: "right" }}>
-          <div style={{ fontWeight: 600, fontSize: "0.9rem", color: "var(--crc-brown-dark)" }}>
+        <div className="brand-topbar-user" style={{ textAlign: "right" }}>
+          <div style={{ fontWeight: 600, fontSize: "0.9rem", color: "var(--brand-dark)" }}>
             {user?.name}
           </div>
           <div style={{ fontSize: "0.75rem", color: "#888" }}>
@@ -89,9 +89,9 @@ export function TopBar({ user, notifications = [], unreadCount = 0, onMenuClick 
           style={{
             padding: "0.4rem 0.8rem",
             borderRadius: 6,
-            border: "1px solid var(--crc-brown)",
+            border: "1px solid var(--brand-primary)",
             backgroundColor: "transparent",
-            color: "var(--crc-brown-dark)",
+            color: "var(--brand-dark)",
             cursor: "pointer",
             fontSize: "0.85rem",
           }}

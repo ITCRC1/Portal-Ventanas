@@ -81,7 +81,7 @@ model Department {
   announcements Announcement[]
 }
 
-// Propiedad (hotel / lodge) de The Costa Rica Collection. Es un eje ORTOGONAL al
+// Propiedad / sede de la empresa. Es un eje ORTOGONAL al
 // departamento: cada propiedad tiene su Finanzas, Operaciones, etc. El contenido
 // se puede acotar a una propiedad; propertyId = null significa "corporativo"
 // (aplica a todas las propiedades y lo ven todos). Quién ve todas las propiedades

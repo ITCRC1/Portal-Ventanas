@@ -114,7 +114,7 @@ export const en: Dictionary = {
     noAnnouncements: "No announcements right now.",
   },
   systemLinks: {
-    subtitle: "Shortcuts to The Costa Rica Collection's internal platforms.",
+    subtitle: "Shortcuts to the company's internal platforms.",
     empty: "No links registered yet.",
   },
   alerts: {
@@ -198,8 +198,8 @@ export const en: Dictionary = {
     "it-systems": "Access, integrations, technical documentation and internal support.",
   },
   departments: {
-    subtitleAll: "All areas of The Costa Rica Collection.",
-    subtitleOwn: "Your department within The Costa Rica Collection.",
+    subtitleAll: "All areas of the company.",
+    subtitleOwn: "Your department within the company.",
     empty: "You don't have a department assigned yet. Ask an administrator to assign you one.",
     owner: "Owner: {name}",
     noOwner: "No owner assigned",

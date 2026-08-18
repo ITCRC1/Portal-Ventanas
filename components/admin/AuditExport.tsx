@@ -49,7 +49,7 @@ export function AuditExport() {
           alignItems: "center",
           gap: "0.5rem",
           marginBottom: "1rem",
-          color: "var(--crc-brown)",
+          color: "var(--brand-primary)",
           fontSize: "0.9rem",
           cursor: "pointer",
         }}

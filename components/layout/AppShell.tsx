@@ -34,7 +34,7 @@ export function AppShell({ role, user, notifications, unreadCount, children }: P
 
       {/* Overlay para cerrar tocando fuera. Solo se ve en móvil (lo controla el CSS);
           en escritorio el drawer no existe, así que aunque se montara quedaría oculto. */}
-      {drawerOpen && <div className="crc-overlay" onClick={closeDrawer} aria-hidden />}
+      {drawerOpen && <div className="brand-overlay" onClick={closeDrawer} aria-hidden />}
 
       <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0 }}>
         <TopBar
@@ -44,10 +44,10 @@ export function AppShell({ role, user, notifications, unreadCount, children }: P
           onMenuClick={() => setDrawerOpen(true)}
         />
         <main
-          className="crc-main"
+          className="brand-main"
           style={{
             flex: 1,
-            backgroundColor: "var(--crc-bg)",
+            backgroundColor: "var(--brand-bg)",
           }}
         >
           {children}

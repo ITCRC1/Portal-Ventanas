@@ -37,9 +37,9 @@ export function NotificationBell({
           height: 38,
           borderRadius: 999,
           border: "1px solid #e5ddd3",
-          backgroundColor: "var(--crc-white)",
+          backgroundColor: "var(--brand-white)",
           cursor: "pointer",
-          color: "var(--crc-brown-dark)",
+          color: "var(--brand-dark)",
         }}
       >
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -78,7 +78,7 @@ export function NotificationBell({
             style={{ position: "fixed", inset: 0, zIndex: 40 }}
           />
           <div
-            className="crc-notif-panel"
+            className="brand-notif-panel"
             style={{
               position: "absolute",
               top: "calc(100% + 8px)",
@@ -87,7 +87,7 @@ export function NotificationBell({
               width: 340,
               maxHeight: 420,
               overflowY: "auto",
-              backgroundColor: "var(--crc-white)",
+              backgroundColor: "var(--brand-white)",
               borderRadius: 10,
               border: "1px solid #e5ddd3",
               boxShadow: "0 10px 30px rgba(0,0,0,0.18)",
@@ -102,7 +102,7 @@ export function NotificationBell({
                 borderBottom: "1px solid #f0ebe3",
               }}
             >
-              <span style={{ fontWeight: 600, color: "var(--crc-brown-dark)", fontSize: "0.9rem" }}>
+              <span style={{ fontWeight: 600, color: "var(--brand-dark)", fontSize: "0.9rem" }}>
                 {dict.notifications.title}
               </span>
               {unreadCount > 0 && (
@@ -112,7 +112,7 @@ export function NotificationBell({
                     style={{
                       background: "none",
                       border: "none",
-                      color: "var(--crc-green)",
+                      color: "var(--brand-accent)",
                       fontSize: "0.75rem",
                       cursor: "pointer",
                     }}
@@ -143,7 +143,7 @@ export function NotificationBell({
                       padding: "0.7rem 0.9rem",
                       border: "none",
                       borderBottom: "1px solid #f5f1ea",
-                      background: n.read ? "var(--crc-white)" : "#f6f2ea",
+                      background: n.read ? "var(--brand-white)" : "#f6f2ea",
                       cursor: "pointer",
                     }}
                   >
@@ -154,11 +154,11 @@ export function NotificationBell({
                         height: 8,
                         borderRadius: 999,
                         marginTop: 6,
-                        background: n.read ? "transparent" : "var(--crc-green)",
+                        background: n.read ? "transparent" : "var(--brand-accent)",
                       }}
                     />
                     <span style={{ minWidth: 0 }}>
-                      <span style={{ display: "block", fontSize: "0.83rem", fontWeight: 600, color: "var(--crc-brown-dark)" }}>
+                      <span style={{ display: "block", fontSize: "0.83rem", fontWeight: 600, color: "var(--brand-dark)" }}>
                         {n.title}
                       </span>
                       {n.body && (

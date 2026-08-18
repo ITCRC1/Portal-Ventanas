@@ -22,7 +22,7 @@ const departments = [
   {
     name: 'Operations',
     slug: 'operations',
-    description: 'Operación hotelera, experiencia del huésped, logística y ejecución diaria.',
+    description: 'Operación diaria, logística y ejecución de procesos.',
     icon: '🛎️',
     order: 3,
   },
@@ -70,14 +70,10 @@ const departments = [
   },
 ]
 
-// Las 4 propiedades (hoteles / lodges) de The Costa Rica Collection. El slug es un
-// identificador estable; el contenido con propertyId null es corporativo (todas).
-const properties = [
-  { name: 'Oxygen Jungle Villas', slug: 'oxygen-jungle-villas', icon: '🌿', order: 1 },
-  { name: 'Amarena', slug: 'amarena', icon: '🌊', order: 2 },
-  { name: 'Ojochal Gardens', slug: 'ojochal-gardens', icon: '🏡', order: 3 },
-  { name: 'Corcovado Wilderness Lodge', slug: 'corcovado-wilderness-lodge', icon: '🌴', order: 4 },
-]
+// Propiedades / sedes de la empresa. El slug es un identificador estable; el
+// contenido con propertyId null es corporativo (todas). Vacío por defecto: se
+// crean desde el panel de admin cuando exista más de una sede.
+const properties: { name: string; slug: string; icon: string; order: number }[] = []
 
 async function main() {
   // update deja intactos los datos que el admin haya editado desde el panel,
@@ -111,7 +107,7 @@ async function main() {
   // El admin inicial NUNCA lleva contraseña fija en el código (sería una brecha en un
   // repo público). Se toma de SEED_ADMIN_PASSWORD y solo se usa al CREARLO por primera
   // vez; si el admin ya existe, no se toca su contraseña.
-  const adminEmail = (process.env.SEED_ADMIN_EMAIL ?? 'it@thecostaricacollection.com').toLowerCase()
+  const adminEmail = (process.env.SEED_ADMIN_EMAIL ?? 'admin@example.com').toLowerCase()
   const existingAdmin = await prisma.user.findUnique({ where: { email: adminEmail } })
 
   if (existingAdmin) {
@@ -136,37 +132,15 @@ async function main() {
     console.log('Usuario admin creado:', admin.email)
   }
 
-  const links = [
-    {
-      name: 'Tickets',
-      url: 'https://tickets.thecostaricacollection.com/',
-      description: 'Sistema de gestión y seguimiento de incidencias del hotel.',
-      icon: '🛎️',
-      order: 1,
-    },
-    {
-      name: 'Vouchers',
-      url: 'https://vouchers.thecostaricacollection.com/',
-      description: 'Gestión y pago de tours y experiencias de los huéspedes.',
-      icon: '🗺️',
-      order: 2,
-    },
-    {
-      name: 'Manual de Operaciones',
-      url: 'https://ops.thecostaricacollection.com/',
-      description: 'Manuales y procedimientos operativos de CRC.',
-      icon: '📖',
-      order: 3,
-    },
-    {
-      // App sin dominio corporativo (por ahora): sin SSO, solo enlace directo.
-      name: 'Reporte Diario',
-      url: 'https://frontend-daily-report-production.up.railway.app/',
-      description: 'Reporte diario de operación.',
-      icon: '📊',
-      order: 4,
-    },
-  ]
+  // Enlaces a otras plataformas internas. Vacío por defecto: se crean desde el
+  // panel de admin (System Links) cuando existan apps reales que enlazar.
+  const links: {
+    name: string
+    url: string
+    description: string
+    icon: string
+    order: number
+  }[] = []
 
   for (const link of links) {
     const existing = await prisma.systemLink.findFirst({

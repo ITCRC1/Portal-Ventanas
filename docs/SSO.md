@@ -1,19 +1,19 @@
 # SSO — Un solo login para todas las apps del dominio
 
-La intranet (`apps.thecostaricacollection.com`) es el **único login**. Emite una cookie
-firmada (`crc_sso`) sobre el dominio raíz `.thecostaricacollection.com`, y cada app del
+La intranet (`apps.tudominio.com`) es el **único login**. Emite una cookie
+firmada (`sso_session`) sobre el dominio raíz `.tudominio.com`, y cada app del
 dominio la **valida** para saber quién es el usuario. Así, con iniciar sesión una vez en
 la intranet, quedas dentro de todas las apps.
 
-- **Tickets** → sin guardia. Acceso directo por su link (mantiene su propio comportamiento).
-- **Las demás apps** → con guardia. Si no hay sesión válida del portal, rebotan al login
+- **Apps sin SSO** (si las hay) → acceso directo por su link, sin pasar por el portal.
+- **Apps con SSO** → con guardia. Si no hay sesión válida del portal, rebotan al login
   de la intranet y regresan después.
 
 ## Cómo funciona (flujo)
 
-1. El usuario inicia sesión en `apps.thecostaricacollection.com`.
-2. El portal pone la cookie `crc_sso` (JWT HS256, ~30 min) en `.thecostaricacollection.com`.
-3. El usuario abre otra app (ej. `vouchers.thecostaricacollection.com`). El navegador
+1. El usuario inicia sesión en `apps.tudominio.com`.
+2. El portal pone la cookie `sso_session` (JWT HS256, ~30 min) en `.tudominio.com`.
+3. El usuario abre otra app (ej. `app-b.tudominio.com`). El navegador
    manda la cookie sola (mismo dominio raíz).
 4. El guardia de esa app verifica la cookie con el **secreto compartido** (`SSO_SECRET`):
    - Válida → entra. El usuario (id, email, rol) queda disponible para la app.
@@ -36,19 +36,19 @@ SSO_SECRET=<el-mismo-secreto-en-todos>
 Solo en el portal, además:
 
 ```
-SSO_COOKIE_DOMAIN=.thecostaricacollection.com
+SSO_COOKIE_DOMAIN=.tudominio.com
 ```
 
 > ⚠️ `SSO_SECRET` es distinto de `AUTH_SECRET`. No los mezcles.
 
 ## Requisito de dominio (CRÍTICO — sin esto el SSO NO funciona)
 
-La cookie `crc_sso` está scopeada a `.thecostaricacollection.com`; el navegador **solo la
+La cookie `sso_session` está scopeada a `.tudominio.com`; el navegador **solo la
 envía a hosts de ese dominio**. Por eso:
 
 1. **Cada backend que valida la cookie debe estar servido bajo un subdominio de
-   `thecostaricacollection.com`**, NO bajo `*.up.railway.app`. En Railway, asígnale un
-   dominio personalizado, p. ej. `vouchers-api.thecostaricacollection.com`. Si el backend
+   `tudominio.com`**, NO bajo `*.up.railway.app`. En Railway, asígnale un
+   dominio personalizado, p. ej. `app-b-api.tudominio.com`. Si el backend
    queda en `*.up.railway.app`, el navegador nunca manda la cookie y el guardia rechaza
    TODO, siempre.
 2. **El frontend debe llamar al backend por ese subdominio** (no por la URL de railway).
@@ -64,7 +64,7 @@ Sin dependencias externas (solo librería estándar). Copia este archivo a la ap
 
 ```python
 # sso_guard.py — Guardia SSO para apps FastAPI del dominio.
-# Verifica la cookie `crc_sso` que emite la intranet.
+# Verifica la cookie `sso_session` que emite la intranet.
 import base64, hashlib, hmac, json, os, time
 from urllib.parse import quote
 
@@ -73,10 +73,10 @@ from starlette.requests import Request
 from starlette.responses import JSONResponse, RedirectResponse
 
 SSO_SECRET = os.environ["SSO_SECRET"].encode()          # MISMO valor que en el portal
-BASE = "https://apps.thecostaricacollection.com"
+BASE = "https://apps.tudominio.com"
 PORTAL_REFRESH = f"{BASE}/api/sso/refresh"
 PORTAL_LOGIN = f"{BASE}/login"
-COOKIE_NAME = "crc_sso"
+COOKIE_NAME = "sso_session"
 
 # Rutas que NO requieren sesión (ajústalas a tu app). El resto queda protegido.
 PUBLIC_PREFIXES = ("/health", "/docs", "/openapi.json", "/redoc", "/static")
@@ -157,7 +157,7 @@ async def handler(request: Request):
     ...
 ```
 
-> **Tickets:** simplemente **no** agregues este middleware.
+> **Apps sin SSO:** simplemente **no** agregues este middleware.
 
 ---
 
@@ -170,10 +170,10 @@ la hace el backend):
 ```ts
 import { NextResponse, type NextRequest } from "next/server"
 
-const BASE = "https://apps.thecostaricacollection.com"
+const BASE = "https://apps.tudominio.com"
 
 export function middleware(req: NextRequest) {
-  if (req.cookies.get("crc_sso")) return NextResponse.next()
+  if (req.cookies.get("sso_session")) return NextResponse.next()
   const url = encodeURIComponent(req.nextUrl.href)
   return NextResponse.redirect(`${BASE}/api/sso/refresh?next=${url}`)
 }
@@ -185,9 +185,9 @@ export const config = { matcher: ["/((?!_next|favicon.ico|api/health).*)"] }
 
 ## Checklist de despliegue
 
-1. **Portal**: define `SSO_SECRET` y `SSO_COOKIE_DOMAIN=.thecostaricacollection.com` en
+1. **Portal**: define `SSO_SECRET` y `SSO_COOKIE_DOMAIN=.tudominio.com` en
    Railway y redepliega. (El código del portal ya está listo.)
-2. **Cada app (menos Tickets)**:
+2. **Cada app que use SSO**:
    - Define `SSO_SECRET` con el MISMO valor.
    - Copia `sso_guard.py` y registra el middleware.
    - (Opcional) agrega el `middleware.ts` a su frontend Next.
@@ -196,10 +196,9 @@ export const config = { matcher: ["/((?!_next|favicon.ico|api/health).*)"] }
 
 ## Cómo probar
 
-- Sin sesión, abre `vouchers.thecostaricacollection.com` directo → debe **rebotarte** al
-  login del portal; tras entrar, te devuelve a Vouchers ya adentro.
+- Sin sesión, abre `app-b.tudominio.com` directo → debe **rebotarte** al
+  login del portal; tras entrar, te devuelve a esa app ya adentro.
 - Con sesión iniciada en la intranet, abre otra app → entra **sin pedir login**.
-- Abre `tickets.thecostaricacollection.com` → entra directo (sin guardia).
 - Desactiva un usuario en la intranet → en pocos minutos queda fuera de todas las apps.
 
 ## Notas de seguridad

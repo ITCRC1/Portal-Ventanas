@@ -27,15 +27,15 @@ type Option = { id: string; name: string }
 const PRIORITY_COLORS: Record<string, { bg: string; fg: string }> = {
   high: { bg: "#f6e0dd", fg: "#a33" },
   medium: { bg: "#f5ecd6", fg: "#8a6d2b" },
-  low: { bg: "#e6f0e0", fg: "var(--crc-green)" },
+  low: { bg: "#e6f0e0", fg: "var(--brand-accent)" },
 }
 
 const smallBtn = {
   padding: "0.3rem 0.5rem",
   borderRadius: 6,
-  border: "1px solid var(--crc-brown)",
-  backgroundColor: "var(--crc-white)",
-  color: "var(--crc-brown-dark)",
+  border: "1px solid var(--brand-primary)",
+  backgroundColor: "var(--brand-white)",
+  color: "var(--brand-dark)",
   cursor: "pointer",
   fontSize: "0.72rem",
   whiteSpace: "nowrap" as const,
@@ -46,9 +46,9 @@ const editInput = {
   minWidth: 0,
   padding: "0.35rem 0.45rem",
   borderRadius: 6,
-  border: "1px solid var(--crc-brown)",
-  backgroundColor: "var(--crc-white)",
-  color: "var(--crc-brown-dark)",
+  border: "1px solid var(--brand-primary)",
+  backgroundColor: "var(--brand-white)",
+  color: "var(--brand-dark)",
   fontSize: "0.75rem",
 }
 
@@ -101,9 +101,9 @@ export async function TaskCard({
       data-testid={`task-card-${task.id}`}
       data-can-modify={canModify ? "true" : "false"}
       style={{
-        backgroundColor: "var(--crc-white)",
+        backgroundColor: "var(--brand-white)",
         borderRadius: 8,
-        border: "1px solid var(--crc-border)",
+        border: "1px solid var(--brand-border)",
         borderLeft: `4px solid ${priority.fg}`,
         padding: "0.7rem 0.8rem",
         display: "flex",
@@ -112,7 +112,7 @@ export async function TaskCard({
       }}
     >
       <div style={{ display: "flex", justifyContent: "space-between", gap: "0.5rem", alignItems: "start" }}>
-        <span style={{ fontWeight: 600, color: "var(--crc-brown-dark)", fontSize: "0.9rem", lineHeight: 1.3 }}>
+        <span style={{ fontWeight: 600, color: "var(--brand-dark)", fontSize: "0.9rem", lineHeight: 1.3 }}>
           {task.title}
         </span>
         <span
@@ -167,7 +167,7 @@ export async function TaskCard({
           </div>
 
           <details>
-            <summary style={{ cursor: "pointer", fontSize: "0.72rem", color: "var(--crc-brown)" }}>
+            <summary style={{ cursor: "pointer", fontSize: "0.72rem", color: "var(--brand-primary)" }}>
               {dict.tasks.edit}
             </summary>
             <ToastForm
@@ -223,7 +223,7 @@ export async function TaskCard({
               </select>
               <button
                 type="submit"
-                style={{ ...smallBtn, backgroundColor: "var(--crc-green)", color: "var(--crc-white)", border: "none", fontWeight: 600 }}
+                style={{ ...smallBtn, backgroundColor: "var(--brand-accent)", color: "var(--brand-white)", border: "none", fontWeight: 600 }}
               >
                 {dict.tasks.save}
               </button>

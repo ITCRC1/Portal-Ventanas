@@ -81,14 +81,14 @@ export default async function DepartmentPage({
     <div>
       <Link
         href="/departments"
-        style={{ fontSize: "0.85rem", color: "var(--crc-brown)", textDecoration: "none" }}
+        style={{ fontSize: "0.85rem", color: "var(--brand-primary)", textDecoration: "none" }}
       >
         ← {dict.nav.departments}
       </Link>
 
       <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", margin: "0.75rem 0 0.25rem" }}>
         <span style={{ fontSize: "2rem" }}>{department.icon}</span>
-        <h1 style={{ color: "var(--crc-brown-dark)", fontSize: "1.5rem", margin: 0 }}>
+        <h1 style={{ color: "var(--brand-dark)", fontSize: "1.5rem", margin: 0 }}>
           {department.name}
         </h1>
       </div>
@@ -110,13 +110,13 @@ export default async function DepartmentPage({
       >
         <section
           style={{
-            backgroundColor: "var(--crc-white)",
+            backgroundColor: "var(--brand-white)",
             borderRadius: 10,
             padding: "1.5rem",
-            border: "1px solid var(--crc-border)",
+            border: "1px solid var(--brand-border)",
           }}
         >
-          <h2 style={{ fontSize: "1.05rem", color: "var(--crc-brown-dark)", marginBottom: "1rem" }}>
+          <h2 style={{ fontSize: "1.05rem", color: "var(--brand-dark)", marginBottom: "1rem" }}>
             {dict.departmentDetail.team} ({department.users.length})
           </h2>
           {department.users.length === 0 ? (
@@ -130,7 +130,7 @@ export default async function DepartmentPage({
                   key={u.id}
                   style={{ padding: "0.5rem 0", borderBottom: "1px solid #f0ebe3" }}
                 >
-                  <div style={{ fontWeight: 600, color: "var(--crc-brown-dark)", fontSize: "0.9rem" }}>
+                  <div style={{ fontWeight: 600, color: "var(--brand-dark)", fontSize: "0.9rem" }}>
                     {u.fullName}
                   </div>
                   <div style={{ fontSize: "0.8rem", color: "#777" }}>{u.email}</div>
@@ -143,13 +143,13 @@ export default async function DepartmentPage({
 
         <section
           style={{
-            backgroundColor: "var(--crc-white)",
+            backgroundColor: "var(--brand-white)",
             borderRadius: 10,
             padding: "1.5rem",
-            border: "1px solid var(--crc-border)",
+            border: "1px solid var(--brand-border)",
           }}
         >
-          <h2 style={{ fontSize: "1.05rem", color: "var(--crc-brown-dark)", marginBottom: "1rem" }}>
+          <h2 style={{ fontSize: "1.05rem", color: "var(--brand-dark)", marginBottom: "1rem" }}>
             {dict.departmentDetail.links} ({systemLinks.length})
           </h2>
           {systemLinks.length === 0 ? (
@@ -165,7 +165,7 @@ export default async function DepartmentPage({
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
-                      color: "var(--crc-brown-dark)",
+                      color: "var(--brand-dark)",
                       fontWeight: 600,
                       fontSize: "0.9rem",
                       textDecoration: "none",
@@ -184,18 +184,18 @@ export default async function DepartmentPage({
       </div>
 
       <section style={{ marginTop: "1rem" }}>
-        <h2 style={{ fontSize: "1.05rem", color: "var(--crc-brown-dark)", marginBottom: "1rem" }}>
+        <h2 style={{ fontSize: "1.05rem", color: "var(--brand-dark)", marginBottom: "1rem" }}>
           {dict.nav.documents} ({documents.length})
         </h2>
         {documents.length === 0 ? (
           <div
             style={{
-              backgroundColor: "var(--crc-white)",
+              backgroundColor: "var(--brand-white)",
               borderRadius: 10,
               padding: "1.5rem",
               color: "#777",
               fontSize: "0.85rem",
-              border: "1px solid var(--crc-border)",
+              border: "1px solid var(--brand-border)",
             }}
           >
             {dict.departmentDetail.noDocuments}

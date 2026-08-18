@@ -4,7 +4,10 @@
 //
 // Sin dependencias de Node: lo usan tanto el servidor (middleware, rutas) como el
 // cliente (página de login).
-const ROOT_DOMAIN = "thecostaricacollection.com"
+//
+// Se toma de env (sin dominio configurado, solo se permiten rutas relativas): define
+// SSO_ROOT_DOMAIN con el dominio raíz corporativo cuando haya otras apps del dominio.
+const ROOT_DOMAIN = process.env.SSO_ROOT_DOMAIN ?? ""
 
 export function safeNext(next: string | null | undefined): string | null {
   if (!next) return null

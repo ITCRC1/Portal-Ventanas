@@ -9,8 +9,7 @@ export default auth((req) => {
   const isPublic =
     pathname.startsWith("/login") ||
     pathname.startsWith("/api/auth") ||
-    pathname.startsWith("/api/sso") ||
-    pathname === "/logo.png"
+    pathname.startsWith("/api/sso")
 
   if (!isLoggedIn && !isPublic) {
     const loginUrl = new URL("/login", req.nextUrl.origin)

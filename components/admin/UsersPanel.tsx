@@ -107,9 +107,9 @@ export async function UsersPanel() {
         </p>
 
         {/* table-layout: fixed + anchos en % => la tabla siempre cabe, sin scroll horizontal.
-            En móvil el contenedor .crc-table-wrap le da scroll horizontal propio para que
+            En móvil el contenedor .brand-table-wrap le da scroll horizontal propio para que
             las columnas no queden ilegibles. */}
-        <div className="crc-table-wrap">
+        <div className="brand-table-wrap">
         <table style={tableStyle}>
           <colgroup>
             <col style={{ width: "12%" }} />
@@ -245,7 +245,7 @@ export async function UsersPanel() {
                           <input type="hidden" name="userId" value={u.id} />
                           <button
                             type="submit"
-                            style={{ ...outlineButtonStyle, width: "100%", borderColor: "var(--crc-green)", color: "var(--crc-green)" }}
+                            style={{ ...outlineButtonStyle, width: "100%", borderColor: "var(--brand-accent)", color: "var(--brand-accent)" }}
                           >
                             {dict.adminUsers.unlock}
                           </button>

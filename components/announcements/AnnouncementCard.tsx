@@ -33,9 +33,9 @@ function fmtDate(date: Date, locale: string): string {
 const smallBtn = {
   padding: "0.3rem 0.55rem",
   borderRadius: 6,
-  border: "1px solid var(--crc-brown)",
-  backgroundColor: "var(--crc-white)",
-  color: "var(--crc-brown-dark)",
+  border: "1px solid var(--brand-primary)",
+  backgroundColor: "var(--brand-white)",
+  color: "var(--brand-dark)",
   cursor: "pointer",
   fontSize: "0.72rem",
   whiteSpace: "nowrap" as const,
@@ -58,9 +58,9 @@ export async function AnnouncementCard({
       data-testid={`announcement-card-${a.id}`}
       data-can-manage={canManage ? "true" : "false"}
       style={{
-        backgroundColor: "var(--crc-white)",
+        backgroundColor: "var(--brand-white)",
         borderRadius: 10,
-        border: "1px solid var(--crc-border)",
+        border: "1px solid var(--brand-border)",
         borderLeft: `5px solid ${c.border}`,
         padding: "1rem 1.1rem",
         opacity: archived || expired ? 0.6 : 1,
@@ -102,7 +102,7 @@ export async function AnnouncementCard({
         <span style={{ marginLeft: "auto", fontSize: "0.72rem", color: "#aaa" }}>{fmtDate(a.publishedAt, locale)}</span>
       </div>
 
-      <h3 style={{ margin: 0, fontSize: "1rem", color: "var(--crc-brown-dark)" }}>{a.title}</h3>
+      <h3 style={{ margin: 0, fontSize: "1rem", color: "var(--brand-dark)" }}>{a.title}</h3>
       <p style={{ margin: 0, fontSize: "0.85rem", color: "#555", lineHeight: 1.5, whiteSpace: "pre-wrap" }}>
         {a.body}
       </p>

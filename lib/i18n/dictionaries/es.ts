@@ -113,7 +113,7 @@ export const es = {
     noAnnouncements: "No hay avisos por ahora.",
   },
   systemLinks: {
-    subtitle: "Accesos directos a las plataformas internas de The Costa Rica Collection.",
+    subtitle: "Accesos directos a las plataformas internas de la empresa.",
     empty: "No hay enlaces registrados todavía.",
   },
   alerts: {
@@ -199,8 +199,8 @@ export const es = {
     "it-systems": "Accesos, integraciones, documentación técnica y soporte interno.",
   },
   departments: {
-    subtitleAll: "Todas las áreas de The Costa Rica Collection.",
-    subtitleOwn: "Tu departamento dentro de The Costa Rica Collection.",
+    subtitleAll: "Todas las áreas de la empresa.",
+    subtitleOwn: "Tu departamento dentro de la empresa.",
     empty: "No tienes un departamento asignado todavía. Pídele a un administrador que te asigne uno.",
     owner: "Responsable: {name}",
     noOwner: "Sin responsable asignado",

@@ -16,10 +16,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Portal Interno · The Costa Rica Collection",
-    template: "%s · The Costa Rica Collection",
+    default: "Portal Ventanas",
+    template: "%s · Portal Ventanas",
   },
-  description: "Portal de plataformas internas de The Costa Rica Collection.",
+  description: "Portal de plataformas internas.",
 };
 
 export default async function RootLayout({

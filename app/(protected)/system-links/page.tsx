@@ -35,7 +35,7 @@ export default async function SystemLinksPage() {
 
   return (
     <div>
-      <h1 style={{ color: "var(--crc-brown-dark)", fontSize: "1.5rem", marginBottom: "0.25rem" }}>
+      <h1 style={{ color: "var(--brand-dark)", fontSize: "1.5rem", marginBottom: "0.25rem" }}>
         {dict.nav["system-links"]}
       </h1>
       <p style={{ color: "#777", marginBottom: "2rem" }}>
@@ -61,15 +61,15 @@ export default async function SystemLinksPage() {
               style={{
                 display: "block",
                 textDecoration: "none",
-                backgroundColor: "var(--crc-white)",
+                backgroundColor: "var(--brand-white)",
                 borderRadius: 10,
                 padding: "1.25rem",
-                border: "1px solid var(--crc-border)",
+                border: "1px solid var(--brand-border)",
                 transition: "transform 0.15s",
               }}
             >
               <div style={{ fontSize: "1.75rem", marginBottom: "0.5rem" }}>{link.icon}</div>
-              <div style={{ fontWeight: 700, color: "var(--crc-brown-dark)", marginBottom: "0.35rem" }}>
+              <div style={{ fontWeight: 700, color: "var(--brand-dark)", marginBottom: "0.35rem" }}>
                 {link.name}
               </div>
               <p style={{ fontSize: "0.85rem", color: "#777", margin: 0 }}>{link.description}</p>

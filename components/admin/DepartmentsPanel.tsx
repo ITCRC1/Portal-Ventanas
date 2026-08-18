@@ -67,8 +67,8 @@ export async function DepartmentsPanel() {
         <h2 style={sectionTitleStyle}>{fmt(dict.adminDepartments.existingTitle, { n: departments.length })}</h2>
         <p style={sectionHintStyle}>{dict.adminDepartments.hint}</p>
 
-        {/* En móvil, .crc-table-wrap le da a la tabla scroll horizontal propio. */}
-        <div className="crc-table-wrap">
+        {/* En móvil, .brand-table-wrap le da a la tabla scroll horizontal propio. */}
+        <div className="brand-table-wrap">
         <table style={tableStyle}>
           <colgroup>
             <col style={{ width: "18%" }} />

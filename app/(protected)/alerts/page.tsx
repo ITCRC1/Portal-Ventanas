@@ -72,7 +72,7 @@ export default async function AlertsPage() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
       <div>
-        <h1 style={{ color: "var(--crc-brown-dark)", fontSize: "1.5rem", marginBottom: "0.25rem" }}>
+        <h1 style={{ color: "var(--brand-dark)", fontSize: "1.5rem", marginBottom: "0.25rem" }}>
           {dict.alerts.title}
         </h1>
         <p style={{ color: "#777", margin: 0 }}>

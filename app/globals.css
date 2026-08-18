@@ -1,35 +1,35 @@
 @import "tailwindcss";
 
 :root {
-  /* El portal usa una paleta clara fija (arena/café); no sigue el tema del sistema.
+  /* Paleta placeholder neutra, lista para reemplazar por la marca real del proyecto.
      color-scheme: light evita que el navegador pinte inputs y scrollbars en oscuro. */
   color-scheme: light;
 
-  /* Marca */
-  --crc-brown-dark: #3E2B23;
-  --crc-brown: #6B4E3D;
-  --crc-green: #4A5D3A;
-  --crc-green-dark: #3B4B2E; /* hover de botones/enlaces */
-  --crc-sand: #F0E6D8;
-  --crc-gold: #C9A25D;
-  --crc-white: #FFFFFF;
+  /* Marca (placeholder — reemplazar con los colores reales del proyecto) */
+  --brand-dark: #1E293B;
+  --brand-primary: #334155;
+  --brand-accent: #2563EB;
+  --brand-accent-dark: #1D4ED8; /* hover de botones/enlaces */
+  --brand-surface: #F1F5F9;
+  --brand-highlight: #CBD5E1;
+  --brand-white: #FFFFFF;
 
-  /* Neutros derivados (antes estaban a mano como #777/#888/#999/#bbb) */
-  --crc-ink: #2C2019;      /* texto principal fuerte */
-  --crc-muted: #7C7167;    /* texto secundario */
-  --crc-muted-soft: #A79E93; /* texto terciario / placeholders */
-  --crc-border: #E6DCCE;   /* bordes y separadores */
-  --crc-border-soft: #F1EBE1;
-  --crc-panel: #FBF8F3;    /* fondo de campos/sutil */
-  --crc-danger: #A6402F;   /* rojos (vencido, eliminar) */
+  /* Neutros derivados */
+  --brand-ink: #0F172A;      /* texto principal fuerte */
+  --brand-muted: #64748B;    /* texto secundario */
+  --brand-muted-soft: #94A3B8; /* texto terciario / placeholders */
+  --brand-border: #E2E8F0;   /* bordes y separadores */
+  --brand-border-soft: #F1F5F9;
+  --brand-panel: #F8FAFC;    /* fondo de campos/sutil */
+  --brand-danger: #DC2626;   /* rojos (vencido, eliminar) */
 
-  /* Fondo grande de las páginas: más claro y menos saturado que el arena, para no
-     cansar la vista. El arena (--crc-sand) se reserva para acentos pequeños
+  /* Fondo grande de las páginas: más claro y menos saturado que la superficie, para no
+     cansar la vista. La superficie (--brand-surface) se reserva para acentos pequeños
      (chips de íconos, buscador, estado activo). */
-  --crc-bg: #F7F3EC;
+  --brand-bg: #F8FAFC;
 
-  --background: var(--crc-bg);
-  --foreground: var(--crc-brown-dark);
+  --background: var(--brand-bg);
+  --foreground: var(--brand-dark);
 }
 
 @theme inline {
@@ -55,45 +55,45 @@ body {
 
 /* Foco accesible y coherente en todo el portal (no se define inline, así que gana). */
 :focus-visible {
-  outline: 2px solid var(--crc-green);
+  outline: 2px solid var(--brand-accent);
   outline-offset: 2px;
   border-radius: 4px;
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--crc-gold) 45%, transparent);
+  background: color-mix(in srgb, var(--brand-highlight) 45%, transparent);
 }
 
 /* Barra de desplazamiento discreta acorde a la paleta. */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--crc-border) transparent;
+  scrollbar-color: var(--brand-border) transparent;
 }
 *::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
 *::-webkit-scrollbar-thumb {
-  background: var(--crc-border);
+  background: var(--brand-border);
   border-radius: 999px;
 }
 
 /* ----- Utilidades reutilizables (para sumar hover sin dejar de usar estilos inline) ----- */
 
 /* Tarjetas “clicables” del dashboard: se elevan al pasar el cursor. */
-.crc-lift {
+.brand-lift {
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
-.crc-lift:hover {
+.brand-lift:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(62, 43, 35, 0.12);
+  box-shadow: 0 8px 22px rgba(30, 41, 59, 0.12);
 }
 
 /* Enlaces de navegación del sidebar. */
-.crc-nav-link {
+.brand-nav-link {
   transition: background-color 0.15s ease, color 0.15s ease;
 }
-.crc-nav-link:hover {
+.brand-nav-link:hover {
   background-color: rgba(255, 255, 255, 0.08);
 }
 
@@ -110,7 +110,7 @@ button:not(:disabled):active {
 }
 
 /* Animación de entrada de las notificaciones (toasts). */
-@keyframes crcToastIn {
+@keyframes brandToastIn {
   from {
     opacity: 0;
     transform: translateX(24px) scale(0.98);
@@ -127,7 +127,7 @@ button:not(:disabled):active {
    Se usan clases (no estilos inline) porque solo las reglas CSS admiten media queries. */
 
 /* Sidebar: fijo, sticky y de 244px en escritorio (idéntico al diseño actual). */
-.crc-sidebar {
+.brand-sidebar {
   width: 244px;
   position: sticky;
   top: 0;
@@ -138,30 +138,30 @@ button:not(:disabled):active {
 }
 
 /* Barra superior: mismo respiro de siempre en escritorio. */
-.crc-topbar {
+.brand-topbar {
   padding: 1rem 1.5rem;
 }
 
 /* Zona de contenido: conserva su margen de 2rem en escritorio. */
-.crc-main {
+.brand-main {
   padding: 2rem;
 }
 
 /* Buscador global: margen lateral de escritorio (se reduce en móvil). */
-.crc-search {
+.brand-search {
   margin: 0 1.5rem;
 }
 
 /* Botón hamburguesa y overlay: solo se muestran en móvil. */
-.crc-menu-btn {
+.brand-menu-btn {
   display: none;
 }
-.crc-overlay {
+.brand-overlay {
   display: none;
 }
 
 /* Contenedor para tablas anchas: sin efecto en escritorio (caben al 100%). */
-.crc-table-wrap {
+.brand-table-wrap {
   width: 100%;
 }
 
@@ -169,13 +169,13 @@ button:not(:disabled):active {
    huecos raros del auto-fit): 3 en escritorio, 2 en pantallas medianas, 1 en
    móvil. Con muchas tarjetas llenan la fila; con una sola queda del tamaño
    normal de una tarjeta (no se estira a todo el ancho). */
-.crc-dept-grid {
+.brand-dept-grid {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 @media (max-width: 1100px) {
-  .crc-dept-grid {
+  .brand-dept-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -183,7 +183,7 @@ button:not(:disabled):active {
 @media (max-width: 767px) {
   /* El sidebar deja de ocupar espacio y se vuelve un panel deslizable ("drawer"),
      oculto a la izquierda por defecto y que entra al abrirlo. */
-  .crc-sidebar {
+  .brand-sidebar {
     position: fixed;
     top: 0;
     left: 0;
@@ -193,39 +193,39 @@ button:not(:disabled):active {
     transition: transform 0.25s ease;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.35);
   }
-  .crc-sidebar.crc-sidebar-open {
+  .brand-sidebar.brand-sidebar-open {
     transform: translateX(0);
   }
 
   /* Capa semitransparente que oscurece el fondo y cierra el drawer al tocar fuera. */
-  .crc-overlay {
+  .brand-overlay {
     display: block;
     position: fixed;
     inset: 0;
     z-index: 55;
-    background: rgba(62, 43, 35, 0.5);
+    background: rgba(30, 41, 59, 0.5);
   }
 
   /* El botón hamburguesa aparece en la barra superior. */
-  .crc-menu-btn {
+  .brand-menu-btn {
     display: inline-flex;
   }
 
   /* Se ocultan datos secundarios de la TopBar (fecha y nombre/rol, ya visibles en
      el pie del sidebar) para dejar sitio al buscador y las acciones. */
-  .crc-topbar-date,
-  .crc-topbar-user {
+  .brand-topbar-date,
+  .brand-topbar-user {
     display: none;
   }
 
   /* Menos padding para aprovechar el ancho del teléfono. */
-  .crc-topbar {
+  .brand-topbar {
     padding: 0.75rem 1rem;
   }
-  .crc-main {
+  .brand-main {
     padding: 1rem;
   }
-  .crc-search {
+  .brand-search {
     margin: 0 0.5rem;
   }
 
@@ -233,16 +233,16 @@ button:not(:disabled):active {
      contenedor, nunca en la página completa. El min-width da a cada columna
      (incluidos los botones de acción como "Desactivar") ancho suficiente para
      que el texto no se salga del botón. */
-  .crc-table-wrap {
+  .brand-table-wrap {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
-  .crc-table-wrap table {
+  .brand-table-wrap table {
     min-width: 900px;
   }
 
   /* Departamentos: una sola columna en móvil. */
-  .crc-dept-grid {
+  .brand-dept-grid {
     grid-template-columns: 1fr;
   }
 
@@ -250,7 +250,7 @@ button:not(:disabled):active {
      anclado a la derecha; en móvil eso se sale de la pantalla, así que lo pasamos a
      un panel fijo que ocupa casi todo el ancho, debajo de la barra superior.
      Se usa !important porque los valores de posición vienen en estilos inline. */
-  .crc-notif-panel {
+  .brand-notif-panel {
     position: fixed !important;
     top: 60px !important;
     left: 8px !important;

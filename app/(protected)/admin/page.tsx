@@ -10,7 +10,7 @@ export default async function AdminPage() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
       <div>
-        <h1 style={{ color: "var(--crc-brown-dark)", fontSize: "1.5rem", marginBottom: "0.25rem" }}>
+        <h1 style={{ color: "var(--brand-dark)", fontSize: "1.5rem", marginBottom: "0.25rem" }}>
           {dict.admin.title}
         </h1>
         <p style={{ color: "#777" }}>

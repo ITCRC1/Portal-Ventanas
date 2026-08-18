@@ -95,7 +95,7 @@ export default async function TasksPage({
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
       <div>
-        <h1 style={{ color: "var(--crc-brown-dark)", fontSize: "1.5rem", marginBottom: "0.25rem" }}>
+        <h1 style={{ color: "var(--brand-dark)", fontSize: "1.5rem", marginBottom: "0.25rem" }}>
           {dict.nav.tasks}
         </h1>
         <p style={{ color: "#777", margin: 0 }}>
@@ -215,7 +215,7 @@ export default async function TasksPage({
           {filtersActive && (
             <a
               href="/tasks"
-              style={{ fontSize: "0.85rem", color: "var(--crc-brown)", alignSelf: "center" }}
+              style={{ fontSize: "0.85rem", color: "var(--brand-primary)", alignSelf: "center" }}
             >
               {dict.tasks.clear}
             </a>

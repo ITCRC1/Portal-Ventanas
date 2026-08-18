@@ -1,16 +1,16 @@
 import type { CSSProperties } from "react"
 
 export const cardStyle: CSSProperties = {
-  backgroundColor: "var(--crc-white)",
+  backgroundColor: "var(--brand-white)",
   borderRadius: 12,
   padding: "1.5rem",
   // Borde tenue en vez de sombra: separa sin recargar (menos cansancio visual).
-  border: "1px solid var(--crc-border)",
+  border: "1px solid var(--brand-border)",
 }
 
 export const sectionTitleStyle: CSSProperties = {
   fontSize: "1.05rem",
-  color: "var(--crc-brown-dark)",
+  color: "var(--brand-dark)",
   marginBottom: "0.35rem",
 }
 
@@ -25,15 +25,15 @@ export const labelStyle: CSSProperties = {
   flexDirection: "column",
   gap: "0.35rem",
   fontSize: "0.85rem",
-  color: "var(--crc-brown)",
+  color: "var(--brand-primary)",
 }
 
 export const inputStyle: CSSProperties = {
   padding: "0.55rem 0.65rem",
   borderRadius: 6,
-  border: "1px solid var(--crc-brown)",
-  backgroundColor: "var(--crc-white)",
-  color: "var(--crc-brown-dark)",
+  border: "1px solid var(--brand-primary)",
+  backgroundColor: "var(--brand-white)",
+  color: "var(--brand-dark)",
   minWidth: 0,
 }
 
@@ -43,18 +43,18 @@ export const cellInputStyle: CSSProperties = {
   minWidth: 0,
   padding: "0.4rem 0.45rem",
   borderRadius: 6,
-  border: "1px solid var(--crc-brown)",
-  backgroundColor: "var(--crc-white)",
-  color: "var(--crc-brown-dark)",
+  border: "1px solid var(--brand-primary)",
+  backgroundColor: "var(--brand-white)",
+  color: "var(--brand-dark)",
   fontSize: "0.8rem",
 }
 
 export const outlineButtonStyle: CSSProperties = {
   padding: "0.4rem 0.5rem",
   borderRadius: 6,
-  border: "1px solid var(--crc-brown)",
-  backgroundColor: "var(--crc-white)",
-  color: "var(--crc-brown-dark)",
+  border: "1px solid var(--brand-primary)",
+  backgroundColor: "var(--brand-white)",
+  color: "var(--brand-dark)",
   cursor: "pointer",
   fontSize: "0.75rem",
   whiteSpace: "nowrap",
@@ -65,8 +65,8 @@ export const primaryButtonStyle: CSSProperties = {
   padding: "0.4rem 0.5rem",
   borderRadius: 6,
   border: "none",
-  backgroundColor: "var(--crc-green)",
-  color: "var(--crc-white)",
+  backgroundColor: "var(--brand-accent)",
+  color: "var(--brand-white)",
   fontWeight: 600,
   cursor: "pointer",
   fontSize: "0.75rem",
@@ -77,8 +77,8 @@ export const createButtonStyle: CSSProperties = {
   padding: "0.6rem 1rem",
   borderRadius: 6,
   border: "none",
-  backgroundColor: "var(--crc-green)",
-  color: "var(--crc-white)",
+  backgroundColor: "var(--brand-accent)",
+  color: "var(--brand-white)",
   fontWeight: 600,
   cursor: "pointer",
   height: "fit-content",
@@ -123,6 +123,6 @@ export function badgeStyle(ok: boolean): CSSProperties {
     fontWeight: 600,
     whiteSpace: "nowrap",
     backgroundColor: ok ? "#e6f0e0" : "#f3e6e6",
-    color: ok ? "var(--crc-green)" : "#a33",
+    color: ok ? "var(--brand-accent)" : "#a33",
   }
 }

@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
 import { usePathname } from "next/navigation"
 import type { Role } from "@prisma/client"
 import { MODULES, getAccessibleModules, type ModuleKey } from "@/lib/permissions"
@@ -92,25 +91,29 @@ export function Sidebar({ role, drawerOpen = false, onNavigate }: Props) {
 
   return (
     // El tamaño/posición (sticky en escritorio, drawer deslizable en móvil) se controla
-    // desde CSS con .crc-sidebar; aquí solo quedan los estilos visuales, sin cambios.
+    // desde CSS con .brand-sidebar; aquí solo quedan los estilos visuales, sin cambios.
     <aside
-      className={`crc-sidebar${drawerOpen ? " crc-sidebar-open" : ""}`}
+      className={`brand-sidebar${drawerOpen ? " brand-sidebar-open" : ""}`}
       style={{
-        backgroundColor: "var(--crc-brown-dark)",
-        color: "var(--crc-white)",
+        backgroundColor: "var(--brand-dark)",
+        color: "var(--brand-white)",
         display: "flex",
         flexDirection: "column",
         padding: "1.5rem 1rem",
       }}
     >
       <div style={{ marginBottom: "2rem", padding: "0 0.5rem" }}>
-        <Image
-          src="/logo.png"
-          alt="The Costa Rica Collection"
-          width={800}
-          height={260}
-          style={{ width: "100%", height: "auto" }}
-        />
+        {/* Placeholder: reemplaza este texto por <Image src="/logo.png" .../> cuando haya un logo. */}
+        <span
+          style={{
+            fontSize: "1.15rem",
+            fontWeight: 700,
+            letterSpacing: "-0.01em",
+            color: "var(--brand-white)",
+          }}
+        >
+          Portal Ventanas
+        </span>
       </div>
 
       <div
@@ -134,7 +137,7 @@ export function Sidebar({ role, drawerOpen = false, onNavigate }: Props) {
             <Link
               key={l.href}
               href={l.href}
-              className="crc-nav-link"
+              className="brand-nav-link"
               // Al elegir un módulo se cierra el drawer en móvil (en escritorio no aplica).
               onClick={onNavigate}
               aria-current={active ? "page" : undefined}
@@ -144,8 +147,8 @@ export function Sidebar({ role, drawerOpen = false, onNavigate }: Props) {
                 gap: "0.7rem",
                 padding: "0.6rem 0.75rem",
                 borderRadius: 8,
-                color: active ? "var(--crc-brown-dark)" : "rgba(255,255,255,0.85)",
-                backgroundColor: active ? "var(--crc-gold)" : "transparent",
+                color: active ? "var(--brand-dark)" : "rgba(255,255,255,0.85)",
+                backgroundColor: active ? "var(--brand-highlight)" : "transparent",
                 textDecoration: "none",
                 fontSize: "0.9rem",
                 fontWeight: active ? 600 : 500,

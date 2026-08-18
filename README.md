@@ -1,4 +1,4 @@
-# Portal Interno · The Costa Rica Collection
+# Portal Ventanas
 
 Intranet corporativa (documentos, tareas, avisos, departamentos, notificaciones y
 bitácora de auditoría) con control de acceso por rol y aislamiento por departamento.

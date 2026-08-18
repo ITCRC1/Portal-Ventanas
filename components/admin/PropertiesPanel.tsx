@@ -55,8 +55,8 @@ export async function PropertiesPanel() {
       <section style={cardStyle}>
         <h2 style={sectionTitleStyle}>{fmt(dict.adminProperties.existingTitle, { n: properties.length })}</h2>
 
-        {/* En móvil, .crc-table-wrap le da a la tabla scroll horizontal propio. */}
-        <div className="crc-table-wrap">
+        {/* En móvil, .brand-table-wrap le da a la tabla scroll horizontal propio. */}
+        <div className="brand-table-wrap">
         <table style={tableStyle}>
           <colgroup>
             <col style={{ width: "45%" }} />
