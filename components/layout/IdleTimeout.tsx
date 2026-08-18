@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react"
 import { signOut } from "next-auth/react"
 
 // Cierra la sesión tras este tiempo sin actividad del usuario.
-const IDLE_MS = 60_000 // 1 minuto
+const IDLE_MS = 10 * 60_000 // 10 minutos
 
 export function IdleTimeout() {
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null)

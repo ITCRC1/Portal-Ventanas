@@ -48,7 +48,7 @@ export default async function SystemLinksPage() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fill, minmax(260px, 320px))",
             gap: "1rem",
           }}
         >
